@@ -1,3 +1,4 @@
+
 import pandas as pd
 import numpy as np
 import joblib
@@ -65,10 +66,10 @@ if submit_button:
     prediction = model.predict(input_data)[0]
 
     st.balloons()
-    st.success(f"\ud83d\udcb0 **Estimated House Price:** ₹{prediction:,.0f}")
+    st.success(f"💰 Estimated House Price: ₹{prediction:,.0f}")
 
     # Future Price Trend
-    st.markdown("""<h3 style='text-align: center;'>\ud83d\udcc8 Future Price Trend (6% Annual Growth)</h3>""", unsafe_allow_html=True)
+    st.markdown("""<h3 style='text-align: center;'>📈 Future Price Trend (6% Annual Growth)</h3>""", unsafe_allow_html=True)
 
     years = np.arange(2025, 2030)
     future_prices = [prediction * (1.06)**(year-2024) for year in years]
@@ -90,5 +91,3 @@ st.markdown("""
 ---
 <p style="text-align: center;">Made with ❤️ for Goregaon</p>
 """, unsafe_allow_html=True)
-
-
