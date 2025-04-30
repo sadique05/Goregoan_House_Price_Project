@@ -1,4 +1,3 @@
-
 import pandas as pd
 import numpy as np
 import joblib
@@ -44,6 +43,7 @@ with st.form(key='prediction_form'):
 
     with col1:
         area = st.number_input('Area (in sqft)', min_value=100, max_value=10000, step=10, help="Enter total carpet area.")
+        bhk = st.selectbox('BHK (Bedrooms)', [1, 2, 3, 4, 5])
         furnished = st.selectbox('Furnishing Status', le_furnished.classes_)
         location = st.selectbox('Location', le_location.classes_)
 
@@ -57,6 +57,7 @@ with st.form(key='prediction_form'):
 if submit_button:
     input_data = np.array([
         area,
+        bhk,
         price_per_sqft,
         le_furnished.transform([furnished])[0],
         le_property.transform([property_type])[0],
